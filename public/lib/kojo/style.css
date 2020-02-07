@@ -1,0 +1,36 @@
+#editControls {
+  text-align:center;
+  padding:5px;
+  margin:5px;
+}
+
+.editor {
+margin-top: 20px;
+resize:vertical;
+overflow:auto;
+border:1px solid silver;
+border-radius:5px;
+min-height:100px;
+box-shadow: inset 0 0 10px silver;
+padding:1em;
+}
+
+#output {
+  width:99.7%;
+  height:100px
+}
+
+a.kojo:link {text-decoration:none;}
+a.kojo:visited {text-decoration:none;}
+a.kojo:hover {
+color: white; 
+background: black; 
+}
+a.kojo:active {text-decoration:none;}
+a.kojo{
+  color:black;
+  padding:5px;
+  border:1px solid silver;
+  border-radius:5px;
+  width:1em;
+}

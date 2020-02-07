@@ -1,0 +1,646 @@
+-- MySQL dump 10.16  Distrib 10.1.25-MariaDB, for Win32 (AMD64)
+--
+-- Host: us-cdbr-iron-east-05.cleardb.net    Database: heroku_c40aea633ae2a2b
+-- ------------------------------------------------------
+-- Server version	5.6.42-log
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `auctions`
+--
+
+DROP TABLE IF EXISTS `auctions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auctions` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `auction_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `auction_price` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `buy_price` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `hb` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `category` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `days` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `hours` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `minutes` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `bids` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `status` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1272 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auctions`
+--
+
+LOCK TABLES `auctions` WRITE;
+/*!40000 ALTER TABLE `auctions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auctions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `bank_accounts`
+--
+
+DROP TABLE IF EXISTS `bank_accounts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bank_accounts` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `acnum` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `acname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `bank` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1291 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `bank_accounts`
+--
+
+LOCK TABLES `bank_accounts` WRITE;
+/*!40000 ALTER TABLE `bank_accounts` DISABLE KEYS */;
+INSERT INTO `bank_accounts` VALUES (1281,'1281','','','','2019-10-01 22:37:01','2019-10-01 22:37:01');
+/*!40000 ALTER TABLE `bank_accounts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `bids`
+--
+
+DROP TABLE IF EXISTS `bids`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bids` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `auction_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `amount` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `pay` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `status` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1272 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `bids`
+--
+
+LOCK TABLES `bids` WRITE;
+/*!40000 ALTER TABLE `bids` DISABLE KEYS */;
+/*!40000 ALTER TABLE `bids` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `blog_posts`
+--
+
+DROP TABLE IF EXISTS `blog_posts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `blog_posts` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `category` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `flink` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `img` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `irdc` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `content` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `likes` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `status` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1272 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `blog_posts`
+--
+
+LOCK TABLES `blog_posts` WRITE;
+/*!40000 ALTER TABLE `blog_posts` DISABLE KEYS */;
+/*!40000 ALTER TABLE `blog_posts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `carts`
+--
+
+DROP TABLE IF EXISTS `carts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `carts` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sku` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `type` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `qty` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `auction_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1272 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `carts`
+--
+
+LOCK TABLES `carts` WRITE;
+/*!40000 ALTER TABLE `carts` DISABLE KEYS */;
+/*!40000 ALTER TABLE `carts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `comments`
+--
+
+DROP TABLE IF EXISTS `comments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `comments` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `deal_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `type` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `comment` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `status` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1272 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `comments`
+--
+
+LOCK TABLES `comments` WRITE;
+/*!40000 ALTER TABLE `comments` DISABLE KEYS */;
+/*!40000 ALTER TABLE `comments` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `coupons`
+--
+
+DROP TABLE IF EXISTS `coupons`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `coupons` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `code` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `discount` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `status` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1272 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `coupons`
+--
+
+LOCK TABLES `coupons` WRITE;
+/*!40000 ALTER TABLE `coupons` DISABLE KEYS */;
+/*!40000 ALTER TABLE `coupons` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `deal_data`
+--
+
+DROP TABLE IF EXISTS `deal_data`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `deal_data` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `sku` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `amount` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `in_stock` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `min_bid` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1272 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `deal_data`
+--
+
+LOCK TABLES `deal_data` WRITE;
+/*!40000 ALTER TABLE `deal_data` DISABLE KEYS */;
+/*!40000 ALTER TABLE `deal_data` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `deal_images`
+--
+
+DROP TABLE IF EXISTS `deal_images`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `deal_images` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `sku` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `irdc` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1272 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `deal_images`
+--
+
+LOCK TABLES `deal_images` WRITE;
+/*!40000 ALTER TABLE `deal_images` DISABLE KEYS */;
+/*!40000 ALTER TABLE `deal_images` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `deals`
+--
+
+DROP TABLE IF EXISTS `deals`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `deals` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sku` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `user_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `type` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `category` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `rating` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `deadline` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `status` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1272 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `deals`
+--
+
+LOCK TABLES `deals` WRITE;
+/*!40000 ALTER TABLE `deals` DISABLE KEYS */;
+/*!40000 ALTER TABLE `deals` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `order_details`
+--
+
+DROP TABLE IF EXISTS `order_details`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `order_details` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `order_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `deal_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `qty` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1272 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `order_details`
+--
+
+LOCK TABLES `order_details` WRITE;
+/*!40000 ALTER TABLE `order_details` DISABLE KEYS */;
+/*!40000 ALTER TABLE `order_details` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `orders`
+--
+
+DROP TABLE IF EXISTS `orders`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `orders` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `number` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `reference` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `comment` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `total` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `status` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1272 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `orders`
+--
+
+LOCK TABLES `orders` WRITE;
+/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ratings`
+--
+
+DROP TABLE IF EXISTS `ratings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ratings` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `deal_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `stars` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `status` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1272 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ratings`
+--
+
+LOCK TABLES `ratings` WRITE;
+/*!40000 ALTER TABLE `ratings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ratings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `settings`
+--
+
+DROP TABLE IF EXISTS `settings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `settings` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `item` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `value` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `type` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1272 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `settings`
+--
+
+LOCK TABLES `settings` WRITE;
+/*!40000 ALTER TABLE `settings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `settings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `shipping_details`
+--
+
+DROP TABLE IF EXISTS `shipping_details`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `shipping_details` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `company` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `zipcode` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `state` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `address` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `city` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1291 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `shipping_details`
+--
+
+LOCK TABLES `shipping_details` WRITE;
+/*!40000 ALTER TABLE `shipping_details` DISABLE KEYS */;
+INSERT INTO `shipping_details` VALUES (1281,'1281','','','','','','2019-10-01 22:37:01','2019-10-01 22:37:01');
+/*!40000 ALTER TABLE `shipping_details` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `smtp_configs`
+--
+
+DROP TABLE IF EXISTS `smtp_configs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `smtp_configs` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `host` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `port` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `user` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `pass` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `enc` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `auth` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `status` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1272 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `smtp_configs`
+--
+
+LOCK TABLES `smtp_configs` WRITE;
+/*!40000 ALTER TABLE `smtp_configs` DISABLE KEYS */;
+/*!40000 ALTER TABLE `smtp_configs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `stores`
+--
+
+DROP TABLE IF EXISTS `stores`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `stores` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `flink` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `img` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `status` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1272 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `stores`
+--
+
+LOCK TABLES `stores` WRITE;
+/*!40000 ALTER TABLE `stores` DISABLE KEYS */;
+/*!40000 ALTER TABLE `stores` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `transactions`
+--
+
+DROP TABLE IF EXISTS `transactions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `transactions` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `amount` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `type` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1272 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `transactions`
+--
+
+LOCK TABLES `transactions` WRITE;
+/*!40000 ALTER TABLE `transactions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `transactions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `fname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `lname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `phone` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `role` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `status` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `verified` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `reset_code` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `remember_token` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1291 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1281,'Tobi','Kudayisi','07054291601','kudayisitobi@gmail.com','$2y$10$P5UpasTQRc/WRlzN1wdlMOtdbwu9VUAQx0ConMbHcxSQ9hc5dSh6u','su','enabled','user','','qHNqCBYoQ0jyjl8dfzZE4U7XhoP8M0kNtIfBuORzBc30KL9Dznx2rI9OW3AT','2019-10-01 22:37:01','2019-10-01 22:37:01');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wallets`
+--
+
+DROP TABLE IF EXISTS `wallets`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `wallets` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `balance` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1291 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wallets`
+--
+
+LOCK TABLES `wallets` WRITE;
+/*!40000 ALTER TABLE `wallets` DISABLE KEYS */;
+INSERT INTO `wallets` VALUES (1281,'1281','0','2019-10-01 22:37:01','2019-10-01 22:37:01');
+/*!40000 ALTER TABLE `wallets` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `withdrawals`
+--
+
+DROP TABLE IF EXISTS `withdrawals`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `withdrawals` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `amount` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `status` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1272 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `withdrawals`
+--
+
+LOCK TABLES `withdrawals` WRITE;
+/*!40000 ALTER TABLE `withdrawals` DISABLE KEYS */;
+/*!40000 ALTER TABLE `withdrawals` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2019-10-04 17:19:28
