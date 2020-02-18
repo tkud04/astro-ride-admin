@@ -141,7 +141,35 @@ class MobileAppController extends Controller {
     }
 
     
+   /**
+	 * Show the application welcome screen to the user.
+	 *
+	 * @return Response
+	 */
+    public function getCheckNumber(Request $request)
+    {
+    	$user = null;
+        
+        $req = $request->all();
+		#dd($req);
+        $validator = Validator::make($req, [
+                             'phone' => 'required|min:6'                      
+         ]);
+         
+         if($validator->fails())
+         {
+             $messages = $validator->messages();
+             $ret = ['status' => "error",'message'=>"Invalid phone number."];
+             //dd($messages);
+         }
+         
+         else
+         {
+             $ret = $this->helpers->checkNumber($req);
+         }
 
+         return json_encode($ret);		 
+    }
 	
     
     /**

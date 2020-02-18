@@ -25,3 +25,4 @@ Route::get('login', 'MobileAppController@getLogin');
 Route::get('signup', 'MobileAppController@getSignup');
 Route::get('logout', 'MobileAppController@getLogout');
 Route::post('sync', 'MobileAppController@postAppSync');
+Route::get('check-number', 'MobileAppController@getCheckNumber');

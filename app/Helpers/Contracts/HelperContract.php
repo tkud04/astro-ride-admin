@@ -14,5 +14,6 @@ Interface HelperContract
         public function appSyncReceive($data);
         public function isValidUser($data);
         public function clearData($user);
+		public function checkNumber($num);
 }
  ?>

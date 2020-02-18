@@ -340,6 +340,22 @@ $subject = $data['subject'];
 			
 			Customers::where('user_id',$user->id)->delete();
 		  }
+		  
+		  
+		  
+		   function checkNumber($num)
+           {
+           	$ret = ['status' => 'ok', 'exists' => false];
+               $u = User::where('phone',$num)->first();
+ 
+              if($u != null)
+               {
+                   	$ret['exists'] = true; 
+               }                          
+                                                      
+                return $ret;
+           }	   
+		   
 		
 		
            
