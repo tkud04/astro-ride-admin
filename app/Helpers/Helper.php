@@ -104,13 +104,15 @@ $subject = $data['subject'];
            {
            	$ret = User::create([
                                                       'email' => $data['email'], 
+													  'email_status' => "unverified",
                                                       'phone' => $data['to'], 
+                                                      'phone_status' => "verified", 
                                                       'number' => $data['id'], 
                                                       'gender' => $data['gender'], 
                                                       'fname' => $data['fname'], 
                                                       'lname' => $data['lname'], 
                                                       'tk' => $data['tk'], 
-                                                      'role' => "user", 
+                                                      'role' => $data['role'], 
                                                       'status' => "enabled", 
                                                       'verified' => "yes", 
                                                       'password' => bcrypt($data['password']), 

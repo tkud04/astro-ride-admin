@@ -153,7 +153,7 @@ class MobileAppController extends Controller {
         $req = $request->all();
 		#dd($req);
         $validator = Validator::make($req, [
-                             'phone' => 'required|min:6'                      
+                             'phone' => 'required|numeric|min:6'                      
          ]);
          
          if($validator->fails())
