@@ -101,6 +101,7 @@ class MobileAppController extends Controller {
          
          else
          {
+			 $req['role'] = "user";
              $ret = $this->helpers->appSignup($req);
          }
 
