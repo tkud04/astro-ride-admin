@@ -171,6 +171,36 @@ class MobileAppController extends Controller {
 
          return json_encode($ret);		 
     }
+
+	/**
+	 * Show the application welcome screen to the user.
+	 *
+	 * @return Response
+	 */
+    public function getDecodePoints(Request $request)
+    {
+    	$user = null;
+        
+        $req = $request->all();
+		#dd($req);
+        $validator = Validator::make($req, [
+                             'points' => 'required'                      
+         ]);
+         
+         if($validator->fails())
+         {
+             $messages = $validator->messages();
+             $ret = ['status' => "error",'message'=>"Invalid encoded points."];
+             //dd($messages);
+         }
+         
+         else
+         {
+             $ret = $this->helpers->pair($this->helpers->decode($req['points']));
+         }
+
+         return json_encode($ret);		 
+    }
 	
     
     /**
